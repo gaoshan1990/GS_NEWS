@@ -1,13 +1,13 @@
 //
 //  AppDelegate.m
-//  GS_NEWS
+//  TestShapeLayer
 //
-//  Created by most on 16/11/16.
+//  Created by most on 16/11/17.
 //  Copyright © 2016年 most. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "GSLaunchAdViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,18 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    self.window =[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    self.window.backgroundColor =[UIColor whiteColor];
-    
-    [GSLaunchAdViewController showAdViewControllerWithFrame:[UIScreen mainScreen].bounds setAdImage:^(GSLaunchAdViewController *LaunchAdViewController) {
-        
-    } showFinish:^{
-        
-    }];
-    [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
