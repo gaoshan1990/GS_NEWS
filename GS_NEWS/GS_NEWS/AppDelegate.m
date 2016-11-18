@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GSLaunchAdViewController.h"
+#import "GSMainNews.h"
 @interface AppDelegate ()
 
 @end
@@ -26,9 +27,15 @@
         
     } showFinish:^{
         
+        GSMainNews  *main =[[GSMainNews alloc] init];
+        
+        self.window.rootViewController =main;
+        
+        
     }];
     [self.window makeKeyAndVisible];
     
+
     return YES;
 }
 

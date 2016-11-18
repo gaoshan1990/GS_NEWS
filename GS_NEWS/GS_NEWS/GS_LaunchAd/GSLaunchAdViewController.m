@@ -6,16 +6,19 @@
 //  Copyright © 2016年 most. All rights reserved.
 //
 
-
-#import "GSLaunchAdViewController.h"
 #define KSCREENWIDTH      [UIScreen mainScreen].bounds.size.width
 #define KSCREENHEIGHT     [UIScreen mainScreen].bounds.size.height
-
+#define  imageUrl  @"http://img2.3lian.com/2014/c7/12/d/77.jpg"
+#import "GSLaunchAdViewController.h"
+#import "SkipView.h"
+#import "UIImageView+WebCache.h"
 @interface GSLaunchAdViewController ()
 @property(nonatomic,strong)UIImageView *lanuchImageView;
 @property(nonatomic,strong)UIImageView *adImageView;
 @property(nonatomic,assign)CGRect adFrame;
-@property(nonatomic,strong)UIButton *skipButton;
+@property(nonatomic,strong)SkipView *skipView;
+@property (nonatomic,strong)showFinishBlock showFinish;
+
 @end
 
 @implementation GSLaunchAdViewController
@@ -43,9 +46,8 @@
 -(void)initWithFrame:(CGRect)frame showFinish:(void(^)())showFinish
 {
     _adFrame =frame;
+    _showFinish =showFinish;
     
-    
-   
     [self addSubviews];
     
 }
@@ -55,20 +57,25 @@
 {
     [self.view addSubview:self.lanuchImageView];
     [self.view addSubview:self.adImageView];
-    [self.adImageView addSubview:self.skipButton];
+    [self.view addSubview:self.skipView];
     
 }
 
-- (UIButton *)skipButton
+-(SkipView *)skipView
 {
-    if (!_skipButton) {
-        _skipButton =[[UIButton alloc] init];
-        _skipButton.layer.cornerRadius =10;
-        _skipButton.layer.borderWidth=1;
-        _skipButton.frame =CGRectMake(KSCREENWIDTH-60, 20, 40, 20);
-    }
+    if (!_skipView) {
+        _skipView =[[SkipView alloc] init];
+        _skipView.frame =CGRectMake(KSCREENWIDTH-40, 20, 30, 30);
+        
+        __weak typeof (self) unself =self;
 
-    return _skipButton;
+        _skipView.skipClick =^{
+        
+         unself. showFinish();
+        
+        };
+    }
+    return _skipView;
 }
 #pragma --添加启动图的imageview
 -(UIImageView *)lanuchImageView
@@ -122,6 +129,9 @@
     if (!_adImageView) {
         _adImageView =[[UIImageView alloc] init];
         _adImageView.frame =CGRectMake(0, 0, self.adFrame.size.width, self.adFrame.size.height-150);
+        _adImageView.userInteractionEnabled =YES;
+        
+        [_adImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
     }
     return _adImageView;
 }
