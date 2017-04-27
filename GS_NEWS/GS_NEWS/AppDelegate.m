@@ -20,6 +20,7 @@
     // Override point for customization after application launch.
     
     NSLog(@"这个测试Git");
+    NSLog(@"这个是测试通过sourceTree");
     
     
     
