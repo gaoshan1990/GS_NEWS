@@ -21,6 +21,10 @@
     
     NSLog(@"这个测试Git");
     NSLog(@"这个是测试通过sourceTree");
+    NSLog(@"这个是master");
+    
+    NSLog(@"这个是brance");
+
     
     
     
