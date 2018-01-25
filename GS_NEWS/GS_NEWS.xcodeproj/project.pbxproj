@@ -807,7 +807,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GS_NEWS/lib/UMAnalytics_Sdk_3.6.6",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sinavotech.GS-NEWS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sinovatech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -823,7 +823,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GS_NEWS/lib/UMAnalytics_Sdk_3.6.6",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sinavotech.GS-NEWS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sinovatech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
